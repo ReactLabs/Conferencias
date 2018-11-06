@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class AdminController extends Controller
 {
@@ -14,6 +15,11 @@ class AdminController extends Controller
     public function index()
     {
         //
+        $events = Event::all();
+
+        //dd($events);
+
+        return view('admin.event.index', compact('events'));
     }
 
     /**
