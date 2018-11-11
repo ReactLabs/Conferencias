@@ -17,6 +17,11 @@ Route::get('/', function () {
 
 Route::get('/', 'AdminController@index');
 
+/**
+ * Rotas de eventos, que serão usadas pelo moderador ou acima
+ */
+Route::resource('/moderator/event', 'EventController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
