@@ -39,19 +39,20 @@
 								<th colspan="2">Operation</th>
 							</tr>
 							<tr>
-								<th>as</th>
-								<th>asd</th>
+								<!-- Colunas para colocar os botões na mesma coluna-->
+								<th></th> 
+								<th></th>
 							</tr>
 						</thead>
 						<tbody>
 							@foreach ($events as $event)
 								<tr>
 									<td>{{ $event->id }}</td>
-									<td>{{ $event->name }}</td>
+									<td><a href="{{action('EventController@show', $event->id)}}">{{ $event->name }}</td>
 									<td>{{ $event->initials }}</td>
 									<td>{{ $event->deadline }}</td>
-									<td> <a href="{{action('EventController@edit', $event['id'])}}"class="btn btn-warning"> Edit </a></td>
-									<td> <a href="{{action('EventController@destroy', $event['id'])}}"class="btn btn-danger"> Remove </a></td>
+									<td> <a href="{{action('EventController@edit', $event->id)}}"class="btn btn-warning"> Edit </a></td>
+									<td> <a href="{{action('EventController@destroy', $event->id)}}"class="btn btn-danger"> Remove </a></td>
 								</tr>
 							@endforeach
 						</tbody>

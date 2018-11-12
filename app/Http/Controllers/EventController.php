@@ -56,7 +56,9 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view ('moderator.event.show', compact('event'));
     }
 
     /**
