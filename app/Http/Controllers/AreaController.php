@@ -26,7 +26,7 @@ class AreaController extends Controller
      */
     public function create()
     {
-        //
+        return view ('admin.area.create');
     }
 
     /**
@@ -37,7 +37,18 @@ class AreaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try{
+            Area::where('name', '=', mb_strtolower($request->get('name')))->firstOrFail();
+
+        }catch(\Exception $e){  //Caso a Area ainda não esteja cadastrado
+
+            $area = new Area;
+            $area->name = mb_strtolower($request->get('name'));
+            $area->save();
+            return redirect('admin/area')->with('success', 'Area registered');
+        }
+        return redirect('admin/area/create')->with('warning', 'Area already been registered');
+
     }
 
     /**
@@ -48,7 +59,9 @@ class AreaController extends Controller
      */
     public function show($id)
     {
-        //
+        $area = Area::find($id);
+
+        return view ('admin.area.show', compact('area'));
     }
 
     /**

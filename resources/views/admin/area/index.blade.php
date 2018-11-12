@@ -46,9 +46,9 @@
                             @foreach ($areas as $area)
                                 <tr>
                                     <td>{{ $area->id }}</td>
-                                    <td><a href="{{action('AreaController@show', $area->id)}}">{{ $area->name }}</td>
+                                    <td><a href="{{action('AreaController@show', $area->id)}}">{{ $area->name }}</a></td>
                                     <td> <a href="{{action('AreaController@edit', $area->id)}}"class="btn btn-warning"> Edit </a></td>
-                                    <td> <a href="{{action('AreatController@destroy', $area->id)}}"class="btn btn-danger"> Remove </a></td>
+                                    <td> <a href="{{action('AreaController@destroy', $area->id)}}"class="btn btn-danger"> Remove </a></td>
                                 </tr>
                             @endforeach
                             </tbody>
