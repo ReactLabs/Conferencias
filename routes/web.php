@@ -19,6 +19,8 @@ Route::get('/', 'AdminController@index');
 
 /**
  * Rotas de eventos, que serão usadas pelo moderador ou acima
+ *
+ * Obg ^^/
  */
 Route::resource('/moderator/event', 'EventController');
 
@@ -26,8 +28,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/admin', 'AdminController');
+Route::resource('admin/area', 'AreaController');
 
-Route::resource('/admin/area', 'AreaController');
+Route::resource('/admin', 'AdminController');
 
 Route::resource('/moderator', 'ModeratorController');
