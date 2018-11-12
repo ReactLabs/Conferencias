@@ -28,4 +28,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/admin', 'AdminController');
 
+Route::resource('/admin/area', 'AreaController');
+
 Route::resource('/moderator', 'ModeratorController');
