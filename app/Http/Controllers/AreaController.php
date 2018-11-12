@@ -72,7 +72,8 @@ class AreaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $area = Area::find($id);
+        return view('admin.area.edit', compact('area', 'id'));
     }
 
     /**
@@ -84,7 +85,20 @@ class AreaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try{
+            $db = Area::where('name', '=', mb_strtolower($request->get('name')))->firstOrFail();
+            if ($db->id == $id){
+                throw new \Exception;
+            }
+
+        }catch(\Exception $e){
+            $area = Area::find($id);
+            $area->name = mb_strtolower($request->get('name'));
+            $area->save();
+            return redirect('admin/area')->with('success', 'Area edited with success');
+        }
+
+        return redirect('admin/area/' . $id . '/edit')->with('warning', 'This name has already been used');
     }
 
     /**
@@ -95,6 +109,14 @@ class AreaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $area = Area::find($id);
+            $area->delete();
+            return redirect('admin/area')->with('success', 'Area has been deleted');
+
+        } catch (\Exception $e) {
+
+            return redirect('admin/area')->with('warning', 'Area is linked with some object');
+        }
     }
 }

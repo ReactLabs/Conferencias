@@ -48,7 +48,14 @@
                                     <td>{{ $area->id }}</td>
                                     <td><a href="{{action('AreaController@show', $area->id)}}">{{ $area->name }}</a></td>
                                     <td> <a href="{{action('AreaController@edit', $area->id)}}"class="btn btn-warning"> Edit </a></td>
-                                    <td> <a href="{{action('AreaController@destroy', $area->id)}}"class="btn btn-danger"> Remove </a></td>
+                                    <td>
+                                        <form id="ex" class="" action="{{action('AreaController@destroy', $area->id)}}" method="post">
+                                            {{method_field('DELETE')}}
+                                            @csrf
+                                            <input name="_method" type="hidden" value="DELETE">
+                                            <button class="btn btn-danger" type="submit">Remove</button>
+                                        </form>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
