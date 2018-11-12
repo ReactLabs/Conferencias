@@ -12,6 +12,10 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    /**
+     * TODO: consertar dataTable na view
+     * remover a ordenação nas colunas desnecessárias na view
+     */
     public function index()
     {
 
@@ -36,13 +40,15 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    /**
+     * Ainda a terminar, pois falta a autenticação do usuário, areas e tags
+     * TODO: combobox com areas e tags, e inserir o usuario que criou o evento
+     */
     public function store(Request $request)
     {
-        /**
-         * Ainda a terminar, pois falta a autenticação do usuário, areas e tags
-         */
+        
         $data = $request->all();
-        $data['user_id'] = 1;
+        $data['user_id'] = 1;   //temporário, apenas para funcionar por enquanto
         Event::create($data);
 
         return redirect ('\moderator\event')->with('success', 'Event registered');
@@ -54,9 +60,12 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /**
+     * TODO: mostras as pesosas que editaram o evento
+     */
     public function show($id)
     {
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
 
         return view ('moderator.event.show', compact('event'));
     }
@@ -69,7 +78,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view ('moderator.event.edit', compact('event'));
     }
 
     /**
@@ -79,9 +90,25 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+    /**
+     * TODO: ainda falta registrar no banco as edições feitas pelos moderadores, criar a tabela pivo
+     */
     public function update(Request $request, $id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        $event->name = $request->get('name');
+        $event->initials = $request->get('initials');
+        $event->date = $request->get('date');
+        $event->description = $request->get('description');
+        $event->qualis = $request->get('qualis');
+        $event->link = $request->get('link');
+        $event->deadline = $request->get('deadline');
+
+        $event->save();
+
+        return redirect('moderator/event')->with('success', 'Event updated');
+
     }
 
     /**
@@ -92,6 +119,10 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event = Event::find($id);
+
+        $event->delete();
+
+        return redirect('moderator/event')->with('success', 'Event deleted');
     }
 }
