@@ -22,14 +22,22 @@ Route::get('/', 'AdminController@index');
  *
  * Obg ^^/
  */
-Route::resource('/moderator/event', 'EventController');
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+/**Admin**/
+
+Route::resource('admin/user', 'UserController');
+
 Route::resource('admin/area', 'AreaController');
 
 Route::resource('/admin', 'AdminController');
+
+/**Moderator**/
+
+Route::resource('/moderator/event', 'EventController');
 
 Route::resource('/moderator', 'ModeratorController');
