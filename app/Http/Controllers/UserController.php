@@ -96,15 +96,15 @@ class UserController extends RegisterController
             $user = User::find($id);
 
             if (\Auth::user()->id == $id) {
-                return redirect('admin/user/index')->with('warning', 'you can\'t delete yourself');
+                return redirect('admin/user/')->with('warning', 'you can\'t delete yourself');
 
             }
 
             $user->delete();
-            return redirect('admin/user/index')->with('success', 'user has been deleted');
+            return redirect('admin/user/')->with('success', 'user has been deleted');
 
         } catch (\Exception $e) {
-            return redirect('admin/user/index')->with('warning', 'user don\'t can deleted');
+            return redirect('admin/user/')->with('warning', 'user don\'t can deleted');
 
         }
 
