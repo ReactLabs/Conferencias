@@ -81,7 +81,7 @@ class UserController extends RegisterController
 
         $user->save();
 
-        return redirect('admin/user/index')->with('success', 'User edited with success');
+        return redirect('admin/user/')->with('success', 'User edited with success');
     }
 
     /**
@@ -114,7 +114,7 @@ class UserController extends RegisterController
         $user = User::find($id);
 
         if(\Auth::user()->id == $id){
-            return redirect('admin/user/index')->with('warning', 'you can\'t disable yourself');
+            return redirect('admin/user/')->with('warning', 'you can\'t disable yourself');
         }
 
         if ($user->active){
@@ -127,6 +127,6 @@ class UserController extends RegisterController
 
         $user->save();
 
-        return redirect('admin/user/index')->with('success', $message);
+        return redirect('admin/user/')->with('success', $message);
     }
 }
