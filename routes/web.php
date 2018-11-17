@@ -30,6 +30,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 /**Admin**/
 
+Route::get('admin/user/{id}/active','UserController@setActives');
+
 Route::resource('admin/user', 'UserController');
 
 Route::resource('admin/area', 'AreaController');
