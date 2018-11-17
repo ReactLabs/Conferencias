@@ -6,6 +6,9 @@ use Closure;
 
 class isModerator
 {
+
+    const MODERATOR_TYPE = 'moderator';
+    const ADMIN_TYPE = 'admin';
     /**
      * Handle an incoming request.
      *
@@ -15,6 +18,11 @@ class isModerator
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (\Auth::user()->type == self::MODERATOR_TYPE){
+            return $next($request);
+        }else if(\Auth::user()->type == self::ADMIN_TYPE){
+            return $next($request);
+        }
+        return redirect('login');
     }
 }

@@ -6,6 +6,8 @@ use Closure;
 
 class isAdmin
 {
+
+    const ADMIN_TYPE = 'admin';
     /**
      * Handle an incoming request.
      *
@@ -15,6 +17,9 @@ class isAdmin
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if (\Auth::user()->type == self::ADMIN_TYPE){
+            return $next($request);
+        }
+        return redirect('/home');
     }
 }
