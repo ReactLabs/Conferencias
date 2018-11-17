@@ -61,6 +61,21 @@
                             </div>
                         </div>
 
+                        <!-- INIT - Here Init the combobox for type -->
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Type') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="type" class="form-control" name="type">
+                                    <option>moderator</option>
+                                    <option>admin</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- END - Here END the combobox for type -->
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

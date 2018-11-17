@@ -29,6 +29,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 /**Admin**/
+Route::get('admin/user/register', 'UserController@showRegistrationForm');
 
 Route::get('admin/user/{id}/active','UserController@setActive');
 
