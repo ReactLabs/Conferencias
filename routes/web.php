@@ -33,9 +33,9 @@ Route::get('admin/user/register', 'UserController@showRegistrationForm');
 
 Route::get('admin/user/{id}/active','UserController@setActive');
 
-Route::get('admin/tag', 'TagController');
-
 Route::resource('admin/user', 'UserController');
+
+Route::resource('admin/tag', 'TagController');
 
 Route::resource('admin/area', 'AreaController');
 
