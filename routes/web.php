@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//delete this
 Route::get('/', 'AdminController@index');
 
 /**

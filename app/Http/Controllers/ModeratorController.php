@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ModeratorController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('is_active');
+        $this->middleware('is_moderator');
+    }
+
     /**
      * Display a listing of the resource.
      *

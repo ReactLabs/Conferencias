@@ -8,6 +8,12 @@ use App\Http\Controllers\Auth\RegisterController;
 
 class UserController extends RegisterController
 {
+
+    function __construct(){
+        $this->middleware('is_active');
+        $this->middleware('is_admin');
+    }
+
     /**
      * Display a listing of the resource.
      *

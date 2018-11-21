@@ -7,6 +7,12 @@ use App\Event;
 
 class AdminController extends Controller
 {
+
+    function __construct(){
+        $this->middleware('is_active');
+        $this->middleware('is_admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
