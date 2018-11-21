@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 //delete this
-Route::get('/', 'AdminController@index');
+//Route::get('/', 'AdminController@index');
 
 /**
  * Rotas de eventos, que serão usadas pelo moderador ou acima
@@ -46,3 +46,6 @@ Route::resource('/admin', 'AdminController');
 Route::resource('/moderator/event', 'EventController');
 
 Route::resource('/moderator', 'ModeratorController');
+
+/**Guest**/
+Route::get('/','GuestController@index');
