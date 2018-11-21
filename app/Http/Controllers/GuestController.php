@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class GuestController extends Controller
 {
@@ -12,6 +13,15 @@ class GuestController extends Controller
 
     public function index(){
 
-        return view('indexGuest');
+        $events = Event::all();
+
+        return view ('indexGuest', compact('events'));
+    }
+
+    public function show($id)
+    {
+        $event = Event::findOrFail($id);
+
+        return view ('showGuest', compact('event'));
     }
 }

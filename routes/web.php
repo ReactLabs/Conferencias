@@ -48,4 +48,7 @@ Route::resource('/moderator/event', 'EventController');
 Route::resource('/moderator', 'ModeratorController');
 
 /**Guest**/
+Route::get('show/{id}','GuestController@show');
+
 Route::get('/','GuestController@index');
+
