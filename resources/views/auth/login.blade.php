@@ -65,6 +65,22 @@
                     </form>
                 </div>
             </div>
+
+            <br/>
+            @if (\Session::has('success'))
+                <div class="alert alert-info alert-dismissible fade show text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                    <strong>{{ \Session::get('success') }}</strong>
+                </div>
+                <br/>
+            @endif
+            @if (\Session::has('failed'))
+                <div class="alert alert-danger alert-dismissible fade show text-center">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close">×</a>
+                    <strong>{{ \Session::get('failed') }}</strong>
+                </div><br />
+            @endif
+
         </div>
     </div>
 </div>
