@@ -12,9 +12,9 @@
     <!--Jquery Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-    <!-- Scripts
+    <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    -->
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -41,12 +41,6 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-
                         @auth
 
                             @if(Auth::user()->type == 'moderator')
@@ -62,10 +56,10 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('moderator/event') }}">Events</a>
+                                                    <a class="nav-link" href="{{ route('event.index') }}">Events</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('moderator/event/create') }}">Create</a>
+                                                    <a class="nav-link" href="{{ route('event.create') }}">Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -85,10 +79,10 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('moderator/event') }}">Events</a>
+                                                    <a class="nav-link" href="{{ route('event.index') }}">Events</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('moderator/event/create') }}">Create</a>
+                                                    <a class="nav-link" href="{{ route('event.create') }}">Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -106,10 +100,10 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/user') }}">Users</a>
+                                                    <a class="nav-link" href="{{ route('user.index') }}">Users</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/user/create') }}">Create</a>
+                                                    <a class="nav-link" href="{{ route('register') }}">Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -119,10 +113,10 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/area') }}">Areas</a>
+                                                    <a class="nav-link" href="{{ route('area.index') }}">Areas</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/area/create') }}">Create</a>
+                                                    <a class="nav-link" href="{{ route('area.create') }}">Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -132,10 +126,10 @@
                                             </a>
                                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/tag') }}">Tags</a>
+                                                    <a class="nav-link" href="{{ route('tag.index') }}">Tags</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="{{ route('admin/tag/create') }}">Create</a>
+                                                    <a class="nav-link" href="{{ route('tag.create') }}">Create</a>
                                                 </li>
                                             </ul>
                                         </li>
@@ -144,6 +138,11 @@
 
                             @endif
                         @endAuth
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
 
                         <!-- Authentication Links -->
                         @guest

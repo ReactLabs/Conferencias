@@ -43,7 +43,6 @@ Route::resource('admin/area', 'AreaController');
 Route::resource('/admin', 'AdminController');
 
 /**Moderator**/
-
 Route::resource('/moderator/event', 'EventController');
 
 Route::resource('/moderator', 'ModeratorController');
