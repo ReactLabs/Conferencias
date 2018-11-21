@@ -40,7 +40,7 @@
 							</tr>
 							<tr>
 								<!-- Colunas para colocar os botões na mesma coluna-->
-								<th></th> 
+								<th></th>
 								<th></th>
 							</tr>
 						</thead>
@@ -69,9 +69,13 @@
 	</div>
 </div>
 
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-<script src="{{ asset('js/datatable.js') }}" defer></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="{{ asset('js/datatable.js') }}"></script>
 
 
 @endsection
