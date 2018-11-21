@@ -29,13 +29,13 @@
 						{{ session('status') }}
 					</div>
 					@endif
-					<table id="filtroTabela" class="table table-striped text-center">
+					<table id="filtroTabelaGuest" class="table table-striped text-center">
 						<thead>
 							<tr>
-								<th rowspan="2">ID</th>
-								<th rowspan="2">Name</th>
-								<th rowspan="2">Initials</th>
-								<th rowspan="2">Deadline</th>
+								<th>ID</th>
+								<th>Name</th>
+								<th>Initials</th>
+								<th>Deadline</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -55,9 +55,13 @@
 	</div>
 </div>
 
+<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 
-<script src="{{ asset('js/datatable.js') }}" defer></script>
+<script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+<script src="{{ asset('js/datatable.js') }}"></script>
 
 
 @endsection
