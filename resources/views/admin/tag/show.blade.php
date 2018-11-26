@@ -32,6 +32,14 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
+
+                            <div class="col-md-6">
+                                <label class="col-form-label text-md-right">{{ $tag->getAreaName() }}</label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

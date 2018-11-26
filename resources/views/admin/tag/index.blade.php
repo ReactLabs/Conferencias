@@ -34,6 +34,7 @@
                             <tr>
                                 <th rowspan="2">ID</th>
                                 <th rowspan="2">Name</th>
+                                <th rowspan="2">Area</th>
                                 <th colspan="2">Operation</th>
                             </tr>
                             <tr>
@@ -47,6 +48,7 @@
                                 <tr>
                                     <td>{{ $tag->id }}</td>
                                     <td><a href="{{action('TagController@show', $tag->id)}}">{{ $tag->name }}</a></td>
+                                    <td>{{ $tag->getAreaName() }}</td>
                                     <td> <a href="{{action('TagController@edit', $tag->id)}}"class="btn btn-warning"> Edit </a></td>
                                     <td>
                                         <form id="ex" class="" action="{{action('TagController@destroy', $tag->id)}}" method="post">

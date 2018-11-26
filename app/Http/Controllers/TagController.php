@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use App\Area;
 
 class TagController extends Controller
 {
@@ -31,7 +32,8 @@ class TagController extends Controller
      */
     public function create()
     {
-        return view ('admin.tag.create');
+        $areas = Area::all();
+        return view ('admin.tag.create', compact('areas'));
     }
 
     /**
@@ -42,17 +44,13 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            Tag::where('name', '=', mb_strtolower($request->get('name')))->firstOrFail();
 
-        }catch(\Exception $e){  //Caso a Tag ainda não esteja cadastrado
+        $tag = new Tag;
+        $tag->name = mb_strtolower($request->get('name'));
+        $tag->area_id = $request->get('area');
+        $tag->save();
+        return redirect('admin/tag')->with('success', 'Tag registered');
 
-            $tag = new Tag;
-            $tag->name = mb_strtolower($request->get('name'));
-            $tag->save();
-            return redirect('admin/tag')->with('success', 'Tag registered');
-        }
-        return redirect('admin/tag/create')->with('warning', 'Tag already been registered');
     }
 
     /**

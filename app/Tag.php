@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Area;
 
 class Tag extends Model
 {
@@ -14,15 +15,16 @@ class Tag extends Model
      */
 
     protected $fillable = [
-        'name',
+        'name', 'area_id'
     ];
 
     public function events(){
         return $this->belongsToMany(Event::class);
     }
 
-    public function areas(){
-        return $this->belongsToMany(Area::class);
+    public function getAreaName(){
+        $area = Area::find($this->id);
+        return $area->name;
     }
 
 }
