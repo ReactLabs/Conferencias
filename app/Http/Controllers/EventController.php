@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Area;
 
 class EventController extends Controller
 {
@@ -37,7 +38,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view ('moderator.event.create');
+        $areas = Area::all();
+        return view ('moderator.event.create', compact('areas'));
     }
 
     /**
@@ -52,6 +54,8 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+
+        dd($request->all());
         
         $data = $request->all();
         $data['user_id'] = 1;   //temporário, apenas para funcionar por enquanto

@@ -81,6 +81,29 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area">
+                                    @foreach($areas as  $area)
+                                        <option value="{{$area->id}}">{{$area->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="area" disabled>
+                                    <option data-divider="true"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Será últil para as tags: <option data-divider="true"></option> -->
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -94,4 +117,24 @@
         </div>
     </div>
 </div>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/i18n/defaults-*.min.js"></script>-->
+
+<script>
+
+    $(document).ready(function() {
+        $('#areas').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+            alert('selecionado')
+        });
+    });
+    
+</script>
+
 @endsection
