@@ -85,7 +85,7 @@
                             <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
 
                             <div class="col-md-6">
-                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area[]">
+                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area[]" required>
                                     @foreach($areas as  $area)
                                         <option value="{{$area->id}}">{{$area->name}}</option>
                                     @endforeach
@@ -97,7 +97,7 @@
                             <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
 
                             <div class="col-md-6">
-                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="tag[]">
+                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="tag[]" required>
                                     <option data-divider="true"></option>
                                 </select>
                             </div>

@@ -81,7 +81,31 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="deadline" class="col-md-4 col-form-label text-md-right">{{ __('Created by') }}</label>
+                        <label for="areas" class="col-md-4 col-form-label text-md-right">{{ __('Areas') }}</label>
+
+                        <div class="col-md-6">
+                            <ul>
+                                @foreach ($event->areas as $area)
+                                    <li>{{ $area->name }}</li>   
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
+
+                        <div class="col-md-6">
+                            <ul>
+                                @foreach ($event->tags as $tag)
+                                    <li>{{ $tag->name }}</li>   
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="user" class="col-md-4 col-form-label text-md-right">{{ __('Created by') }}</label>
 
                         <div class="col-md-6">
                             <label class="col-form-label text-md-right">{{ $event->getUserName() }}</label>

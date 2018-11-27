@@ -23,7 +23,7 @@ class Tag extends Model
     }
 
     public function getAreaName(){
-        $area = Area::find($this->id);
+        $area = Area::find($this->area_id);
         return $area->name;
     }
 

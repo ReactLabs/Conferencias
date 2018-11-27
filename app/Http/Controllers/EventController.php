@@ -65,7 +65,8 @@ class EventController extends Controller
         $event->qualis = $request->get('qualis');
         $event->link = $request->get('link');
         $event->deadline = $request->get('deadline');
-        $event->user_id = 1;   //temporário, apenas para funcionar por enquanto
+        //$event->user_id = 1;   //temporário, apenas para funcionar por enquanto
+        $event->user_id = \Auth::user()->id;
 
         $event->save();
 

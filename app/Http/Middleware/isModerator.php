@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class isModerator
+class IsModerator
 {
 
     const MODERATOR_TYPE = 'moderator';
