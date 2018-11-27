@@ -115,7 +115,9 @@ class EventController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view ('moderator.event.edit', compact('event'));
+        $areas = Area::all();
+
+        return view ('moderator.event.edit', compact('event', 'areas'));
     }
 
     /**

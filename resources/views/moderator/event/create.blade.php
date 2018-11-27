@@ -98,7 +98,7 @@
 
                             <div class="col-md-6">
                                 <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="tag[]" required>
-                                    <option data-divider="true"></option>
+                                    
                                 </select>
                             </div>
                         </div>

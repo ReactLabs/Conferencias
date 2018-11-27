@@ -81,6 +81,30 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area[]" required>
+                                    @foreach($event->areas as  $area)
+                                        <option selected value="{{ $area->id }}">{{ $area->name }}</option>
+                                    @endforeach
+                                    <option data-divider="true"></option>
+                               
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="tag[]" required>
+                                    
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
@@ -94,4 +118,53 @@
         </div>
     </div>
 </div>
+
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/css/bootstrap-select.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/bootstrap-select.min.js"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.2/js/i18n/defaults-*.min.js"></script>-->
+
+<script>
+
+    $(document).ready(function() {
+        $('#areas').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.post({
+                url: "{{ url('/moderator/get-tags/')}}",
+                method: 'post',
+                beforeSend: function (xhr) {
+                    var token = $('meta[name="csrf_token"]').attr('content');
+                    if (token) {
+                        return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                    }
+                },
+                data: {
+                    areas : $(this).val(),
+                },
+                success: function(result){
+                    console.log(result);
+                    $('#tags').empty();
+                    $.each(result, function (index,value) {
+                        $('#tags').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    })
+                    $('#tags').selectpicker("refresh");
+                }
+            });
+        });
+    });
+
+
+
+
+</script>
 @endsection
