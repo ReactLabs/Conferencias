@@ -163,7 +163,7 @@ class EventController extends Controller
 
     public function getTags(Request $request){
 
-        $tags = Tag::where('area_id', '=', $request->get('areas'))->get();
+        $tags = Tag::whereIn('area_id', $request->get('areas'))->get();
 
         return response()->json($tags, 200);
     }
