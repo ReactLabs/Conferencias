@@ -43,6 +43,8 @@ Route::resource('admin/area', 'AreaController');
 Route::resource('/admin', 'AdminController');
 
 /**Moderator**/
+Route::post('/moderator/get-tags/', 'EventController@getTags');
+
 Route::resource('/moderator/event', 'EventController');
 
 Route::resource('/moderator', 'ModeratorController');

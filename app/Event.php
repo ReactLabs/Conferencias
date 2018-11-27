@@ -15,6 +15,7 @@ class Event extends Model
      */
     protected $fillable = [
         'name','initials','date','description','qualis','link','deadline','user_id',
+
     ];
 
     public function tags(){

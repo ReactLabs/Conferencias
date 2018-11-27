@@ -85,7 +85,7 @@
                             <label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
 
                             <div class="col-md-6">
-                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area">
+                                <select id="areas" class="form-control selectpicker" multiple data-live-search="true" title="Choose the areas..." name="area[]">
                                     @foreach($areas as  $area)
                                         <option value="{{$area->id}}">{{$area->name}}</option>
                                     @endforeach
@@ -97,7 +97,7 @@
                             <label for="tags" class="col-md-4 col-form-label text-md-right">{{ __('Tags') }}</label>
 
                             <div class="col-md-6">
-                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="area" disabled>
+                                <select id="tags" class="form-control selectpicker" multiple data-live-search="true" title="Choose the tags..." name="tag[]">
                                     <option data-divider="true"></option>
                                 </select>
                             </div>
@@ -131,10 +131,39 @@
 
     $(document).ready(function() {
         $('#areas').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
-            alert('selecionado')
+            e.preventDefault();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            jQuery.post({
+                url: "{{ url('/moderator/get-tags/')}}",
+                method: 'post',
+                beforeSend: function (xhr) {
+                    var token = $('meta[name="csrf_token"]').attr('content');
+                    if (token) {
+                        return xhr.setRequestHeader('X-CSRF-TOKEN', token);
+                    }
+                },
+                data: {
+                    areas : $(this).val(),
+                },
+                success: function(result){
+                    console.log(result);
+                    $('#tags').empty();
+                    $.each(result, function (index,value) {
+                        $('#tags').append('<option value="' + value.id + '">' + value.name + '</option>');
+                    })
+                    $('#tags').selectpicker("refresh");
+                }
+            });
         });
     });
-    
+
+
+
+
 </script>
 
 @endsection

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Tag;
 use Illuminate\Http\Request;
 use App\Event;
 use App\Area;
@@ -55,11 +56,34 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        dd($request->all());
+        $event = new Event();
         
-        $data = $request->all();
-        $data['user_id'] = 1;   //temporário, apenas para funcionar por enquanto
-        Event::create($data);
+        $event->name = $request->get('name');
+        $event->initials = $request->get('initials');
+        $event->date = $request->get('date');
+        $event->description = $request->get('description');
+        $event->qualis = $request->get('qualis');
+        $event->link = $request->get('link');
+        $event->deadline = $request->get('deadline');
+        $event->user_id = 1;   //temporário, apenas para funcionar por enquanto
+
+        $event->save();
+
+        $areas = Area::WhereIn('id', $request->get('area'))->get();
+        $tags = Tag::WhereIn('id', $request->get('tag'))->get();
+
+        $event->areas()->attach($areas);
+        $event->tags()->attach($tags);
+        try{
+
+
+
+        }catch(\Exception $e){
+
+            $event->delete();
+            return redirect ('\moderator\event')->with('warning', 'Error trying to register event, please contact the administrator of the system');
+
+        }
 
         return redirect ('\moderator\event')->with('success', 'Event registered');
     }
@@ -134,5 +158,12 @@ class EventController extends Controller
         $event->delete();
 
         return redirect('moderator/event')->with('success', 'Event deleted');
+    }
+
+    public function getTags(Request $request){
+
+        $tags = Tag::where('area_id', '=', $request->get('areas'))->get();
+
+        return response()->json($tags, 200);
     }
 }
