@@ -141,9 +141,7 @@
                             @endif
                         @endAuth
 
-                        <a class="nav-link" href="{{ url('/about') }}">
-                            About
-                        </a>
+
 
                     </ul>
 
@@ -189,5 +187,22 @@
             @yield('content')
         </main>
     </div>
+    <footer class="fixed-bottom">
+        <div class="container-fluid bg-light" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sn-12 col-md-4 col-lg-4">
+                        <a class="nav-link" style="color:black" href="{{ url('/about') }}">About</a>
+                    </div>
+                    <div class="col-xs-12 col-sn-12 col-md-3 col-lg-3">
+                    </div>
+                    <div class="col-xs-12 col-sn-12 col-md-5 col-lg-5">
+                        <font size="2">REACT - versão 1.0.0 </font> | <font size="2">Todos os Direitos Reservados à UPE-NTI</font>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
 </body>
 </html>
