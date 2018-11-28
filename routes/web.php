@@ -54,3 +54,10 @@ Route::get('show/{id}','GuestController@show');
 
 Route::get('/','GuestController@index');
 
+/**
+ * About
+ */
+Route::get('/about', function(){
+    return view('about');
+});
+
