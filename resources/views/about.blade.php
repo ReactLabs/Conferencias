@@ -73,6 +73,14 @@
                                  nas pesquisas.
                            </p>
                     </div>
+
+                    <div class="form-group text-justify">
+                            <h4 class="display-6 font-weight-bold">Solicitar acesso</h4>
+                             <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Clicando em
+                             Register, você poderá submeter seus dados para que
+                             eles sejam analisados pelo(s) administrador(res) do
+                             sistema. Podendo ser ou não aprovado.</p>
+                    </div>
                     
                 </div>
 

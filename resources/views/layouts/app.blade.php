@@ -140,6 +140,11 @@
 
                             @endif
                         @endAuth
+
+                        <a class="nav-link" href="{{ url('/about') }}">
+                            About
+                        </a>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->
