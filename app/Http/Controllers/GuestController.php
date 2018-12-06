@@ -22,6 +22,7 @@ class GuestController extends Controller
     {
         $event = Event::findOrFail($id);
 
-        return view ('showGuest', compact('event'));
+        //return view ('showGuest', compact('event'));
+        return view ('moderator.event.show', compact('event'));
     }
 }
