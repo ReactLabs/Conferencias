@@ -15,18 +15,21 @@
                                 onde poderão cadastrar os eventos que irão participar.</p>
                     </div>
 
-                    <div class="form-group text-justify">
-                            <h4 class="display-6 font-weight-bold">Por que usar o Conferências?</h4>
-                            <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Para que você membro do React ou qualquer outra pessoa que deseja participar de 
-                                algum evento (ou apresentar algum artigo nele), possa manter um controle das datas e outras informações referentes ao evento.</p>
-                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="form-group text-justify col-lg-6">
+                                <h4 class="display-6 font-weight-bold">Por que usar o Conferências?</h4>
+                                <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Para que você membro do React ou qualquer outra pessoa que deseja participar de
+                                    algum evento (ou apresentar algum artigo nele), possa manter um controle das datas e outras informações referentes ao evento.</p>
+                        </div>
 
-                    <div class="form-group text-justify">
-                            <h4 class="display-6 font-weight-bold">O que é o Conferências?</h4>
-                            <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Devido a necessidade de manter um controle dos futuros eventos 
-                                que os membros do React apresentarão seus artigos. Para, por exemplo, não perder os prazos de 
-                                submissões dos artigos. O sistema de conferências permite que os usuários criem um repositório de 
-                                eventos, onde poderão cadastrar os eventos que irão participar.</p>
+                        <div class="form-group text-justify col-lg-6">
+                                <h4 class="display-6 font-weight-bold">O que é o Conferências?</h4>
+                                <p class="lead">&nbsp;&nbsp;&nbsp;&nbsp;Devido a necessidade de manter um controle dos futuros eventos
+                                    que os membros do React apresentarão seus artigos. Para, por exemplo, não perder os prazos de
+                                    submissões dos artigos. O sistema de conferências permite que os usuários criem um repositório de
+                                    eventos, onde poderão cadastrar os eventos que irão participar.</p>
+                        </div>
                     </div>
 
                     <div class="form-group text-justify">
