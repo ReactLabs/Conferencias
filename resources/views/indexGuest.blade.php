@@ -29,6 +29,62 @@
 						{{ session('status') }}
 					</div>
 					@endif
+
+					<div class="card">
+	
+						<div class="card-body">
+
+							<label class="col-md-12 col-form-label text-md-center">{{ __('Advanced Search') }}</label><br>
+
+							<form method="GET" action="{{ action('EventController@eventsFilter') }}">
+								@csrf
+
+								<div class="form-group row">
+									<label for="area" class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
+		
+									<div class="col-md-6">
+										<select id="area" class="form-control selectpicker" data-live-search="true" name="area">
+											<option value="0">Choose the area...</option>
+											<option data-divider="true"></option>
+											@foreach($areas as  $area)
+												<option value="{{ $area->id }}">{{ $area->name }}</option>
+											@endforeach
+										</select>
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date from') }}</label>
+		
+									<div class="col-md-6">
+
+										<input id="date_from" type="date" class="form-control" name="date_from" value="{{  old('date_from') }}">
+
+									</div>
+								</div>
+
+								<div class="form-group row">
+									<label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date to') }}</label>
+		
+									<div class="col-md-6">
+
+										<input id="date_to" type="date" class="form-control" name="date_to" value="{{  old('date_to') }}">
+									
+									</div>
+								</div>
+		
+								<div class="form-group row mb-0">
+									<div class="col-md-6 offset-md-4">
+										<button type="submit" class="btn btn-primary">
+											{{ __('Search') }}
+										</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+					<br><br>
+
 					<table id="filtroTabelaGuest" class="table table-striped text-center">
 						<thead>
 							<tr>
