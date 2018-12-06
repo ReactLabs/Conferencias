@@ -125,9 +125,6 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    /**
-     * TODO: ainda falta registrar no banco as edições feitas pelos moderadores, criar a tabela pivo
-     */
     public function update(Request $request, $id)
     {
         $event = Event::findOrFail($id);
@@ -141,6 +138,15 @@ class EventController extends Controller
         $event->deadline = $request->get('deadline');
 
         $event->save();
+
+        $event->areas()->detach();
+        $event->tags()->detach();
+
+        $areas = Area::WhereIn('id', $request->get('area'))->get();
+        $tags = Tag::WhereIn('id', $request->get('tag'))->get();
+
+        $event->areas()->attach($areas);
+        $event->tags()->attach($tags);
 
         return redirect('moderator/event')->with('success', 'Event updated');
 
