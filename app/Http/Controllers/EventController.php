@@ -20,16 +20,14 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    /**
-     * TODO: consertar dataTable na view
-     * remover a ordenação nas colunas desnecessárias na view
-     */
     public function index()
     {
 
         $events = Event::all();
 
-        return view ('moderator.event.index', compact('events'));
+        $areas = Area::all();
+
+        return view ('moderator.event.index', compact('events', 'areas'));
     }
 
     /**
@@ -168,5 +166,34 @@ class EventController extends Controller
         $tags = Tag::whereIn('area_id', $request->get('areas'))->get();
 
         return response()->json($tags, 200);
+    }
+
+    public function eventsFilter(Request $request) {
+
+        if ($request->get('area') == 0){
+            $eventsArea = Event::all();
+        }else {
+            $area = Area::findOrFail($request->get('area'));
+            $eventsArea = $area->events;
+        }
+
+
+        $from = $request->get('date_from');
+        $to = $request->get('date_to');
+
+        if ($from == null || $to == null){
+            $events = $eventsArea;
+        }else {
+            $eventsTime = Event::whereBetween('date', [$from, $to])->get();
+            $events = $eventsArea->intersect($eventsTime);
+        }
+
+        if ($events->count() == 0){
+            return redirect('/moderator/event')->with('warning', 'No matching records found');
+        }
+
+        $areas = Area::all();
+
+        return view ('moderator.event.index', compact('events', 'areas'));
     }
 }

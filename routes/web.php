@@ -45,6 +45,8 @@ Route::resource('/admin', 'AdminController');
 /**Moderator**/
 Route::post('/moderator/get-tags/', 'EventController@getTags');
 
+Route::get('/moderator/event/filter', 'EventController@eventsFilter');
+
 Route::resource('/moderator/event', 'EventController');
 
 Route::resource('/moderator', 'ModeratorController');
