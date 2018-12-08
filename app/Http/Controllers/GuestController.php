@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\Area;
 
 class GuestController extends Controller
 {
@@ -15,7 +16,9 @@ class GuestController extends Controller
 
         $events = Event::all();
 
-        return view ('indexGuest', compact('events'));
+        $areas = Area::all();
+
+        return view ('indexGuest', compact('events', 'areas'));
     }
 
     public function show($id)
