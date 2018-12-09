@@ -71,11 +71,11 @@ class EventController extends Controller
         $areas = Area::WhereIn('id', $request->get('area'))->get();
         $tags = Tag::WhereIn('id', $request->get('tag'))->get();
 
-        $event->areas()->attach($areas);
-        $event->tags()->attach($tags);
+
         try{
 
-
+            $event->areas()->attach($areas);
+            $event->tags()->attach($tags);
 
         }catch(\Exception $e){
 
@@ -201,5 +201,14 @@ class EventController extends Controller
         $areas = Area::all();
 
         return view ('moderator.event.index', compact('events', 'areas'));
+    }
+
+    public function copy($id)
+    {
+        $event = Event::findOrFail($id);
+
+        $areas = Area::all();
+
+        return view ('moderator.event.copy', compact('event', 'areas'));
     }
 }
