@@ -19,7 +19,15 @@
             @endif
 
             <div class="card">
-                <div class="card-header">{{ __($event->name.' - Information') }}</div>
+                <div class="card-header">{{ __($event->name.' - Information') }}
+
+                    <div class="float-md-right">
+                        <a href="{{ url("moderator/event/copy/" . $event->id) }}">
+                            <img height="32" width="32" src="{{ asset("copy.png") }}">
+                        </a>
+                    </div>
+
+                </div>
 
                 <div class="card-body">
                     @csrf
