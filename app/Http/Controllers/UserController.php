@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserAccount;
 
 class UserController extends RegisterController
 {
@@ -126,12 +128,16 @@ class UserController extends RegisterController
         if ($user->active){
             $user->active = false;
             $message = 'user has been disable';
+            $activeUser = false;
         }else{
             $user->active = true;
             $message = 'user has been activated';
+            $activeUser = true;
         }
 
         $user->save();
+
+        Mail::to($user->email)->send(new UserAccount($user->name, $activeUser));
 
         return redirect('admin/user/')->with('success', $message);
     }
