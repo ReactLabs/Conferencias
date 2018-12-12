@@ -112,7 +112,7 @@ class UserController extends RegisterController
             return redirect('admin/user/')->with('success', 'user has been deleted');
 
         } catch (\Exception $e) {
-            return redirect('admin/user/')->with('warning', 'user don\'t can deleted');
+            return redirect('admin/user/')->with('warning', 'user can\'t be deleted');
 
         }
 
