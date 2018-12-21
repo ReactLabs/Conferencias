@@ -70,7 +70,7 @@
                                     </li>
                                 </ul>
 
-                                
+
                             </div>
 
                         @elseif(Auth::user()->type == 'admin')
