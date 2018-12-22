@@ -36,7 +36,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
-<body class="bg-dark">
+<body style="background-color: rgb(90,92,94);">
 <div id="app">
     <nav class="navbar navbar-expand-xl bg-light navbar-light navbar-laravel">
         <div class="container">
@@ -197,7 +197,7 @@
         </div>
     </nav>
 
-    <main class="py-4">
+    <main class="py-auto">
         @yield('content')
     </main>
 </div>
