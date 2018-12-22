@@ -9,6 +9,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <link rel="shortcut icon" href="{{{ asset('img/icon.png') }}}">
+
     <!--Jquery Script -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -34,12 +36,12 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
-<body>
+<body class="bg-dark">
 <div id="app">
-    <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
+    <nav class="navbar navbar-expand-xl bg-light navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="img/react.png" width="120" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -200,22 +202,20 @@
     </main>
 </div>
 <footer class="fixed-bottom">
-    <div class="container-fluid bg-light">
+    <div class="container-fluid" style="background-color: #4c110f; color: lightgray; font-size: 13px;">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sn-12 col-md-4 col-lg-4">
-                    <a class="nav-link" style="color:black" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link" style="color:lightgray" href="{{ url('/about') }}">About</a>
                 </div>
                 <div class="col-xs-12 col-sn-12 col-md-3 col-lg-3">
                 </div>
                 <div class="col-xs-12 col-sn-12 col-md-5 col-lg-5">
-                    <font size="2">REACT - versão 1.0.0 </font> | <font size="2">Todos os Direitos Reservados à
-                        UPE-NTI</font>
-                    <br>
+                    <a class="nav-link" style="color:lightgray">REACT - versão 1.0.0 | Todos os Direitos Reservados à UPE-NTI</a>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
+</footer>
 </body>
 </html>
