@@ -19,7 +19,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header">{{ __('Register Event') }}</div>
+                <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">{{ __('Register Event') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ action('EventController@update', $event->id) }}">

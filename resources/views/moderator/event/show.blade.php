@@ -19,7 +19,7 @@
             @endif
 
             <div class="card">
-                <div class="card-header">{{ __($event->name.' - Information') }}
+                <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">{{ __($event->name.' - Information') }}
 
                     <div class="float-md-right">
                         <a href="{{ url("moderator/event/copy/" . $event->id) }}">

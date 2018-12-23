@@ -14,7 +14,7 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Edit Tag') }}</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">{{ __('Edit Tag') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ action('TagController@update', $id) }}">

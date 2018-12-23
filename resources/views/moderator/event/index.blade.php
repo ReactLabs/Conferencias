@@ -22,7 +22,7 @@
                     <br/>
                 @endif
                 <div class="card">
-                    <div class="card-header">Events</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">Events</div>
                     <div class="card-body table-responsive">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
