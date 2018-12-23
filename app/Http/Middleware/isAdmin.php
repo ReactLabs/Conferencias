@@ -20,6 +20,6 @@ class IsAdmin
         if (\Auth::user()->type == self::ADMIN_TYPE){
             return $next($request);
         }
-        return redirect('/home');
+        return redirect('/moderator/event/index');
     }
 }

@@ -25,7 +25,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/moderator/event/index';
     const ADMIN_TYPE = 'admin';
     /**
      * Create a new controller instance.
@@ -115,6 +115,6 @@ class RegisterController extends Controller
         if (method_exists($this, 'redirectTo')) {
             return $this->redirectTo();
         }
-        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/home';
+        return property_exists($this, 'redirectTo') ? $this->redirectTo : '/moderator/event/index';
     }
 }
