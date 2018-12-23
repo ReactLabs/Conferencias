@@ -19,7 +19,7 @@
                 @endif
 
                 <div class="card">
-                    <div class="card-header">{{ __('Tag - Information') }}</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">{{ __('Tag - Information') }}</div>
 
                     <div class="card-body">
                         @csrf

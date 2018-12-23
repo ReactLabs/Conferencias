@@ -2,7 +2,6 @@
 @section('content')
 
 
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -22,7 +21,7 @@
                     <br/>
                 @endif
                 <div class="card">
-                    <div class="card-header">Events</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">Events</div>
                     <div class="card-body table-responsive">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -32,7 +31,7 @@
 
                         <div class="card-body">
 
-                            <table id="filtroTabela" class="table table-striped text-center">
+                            <table id="filtroTabela" class="text-center table-striped" style="width: 100%;">
                                 <thead>
                                 <tr>
                                     <th rowspan="2">ID</th>
@@ -55,14 +54,19 @@
                                         </td>
                                         <td>{{ $event->initials }}</td>
                                         <td>{{ $event->deadline }}</td>
-                                        <td><a href="{{action('EventController@edit', $event->id)}}"
-                                               class="btn btn-warning"> Edit </a></td>
+                                        <td>
+                                            <a href="{{action('EventController@edit', $event->id)}}" class="btn btn-warning btn-sm" style="background-color: gold;border-color: gold">
+                                                <img width="20px" height="20px" src="{{ asset('img/edit.png') }}">
+                                            </a>
+                                        </td>
                                         <td>
                                             <form action="{{ action('EventController@destroy', $event->id) }}"
                                                   method="post">
                                                 @csrf
                                                 <input name="_method" type="hidden" value="DELETE">
-                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    <img width="20px" height="20px" src="{{ asset('img/delete.png') }}">
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -77,7 +81,7 @@
             <div class="col-md-4">
                 <br>
                 <div class="card">
-                    <div class="card-header">Advanced Search</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">Advanced Search</div>
                     <div class="card-body">
 
                     <!-- <label class="col-md-12 col-form-label text-md-center">{{ __('Advanced Search') }}</label><br> -->
@@ -89,7 +93,7 @@
                                 <label for="area"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <select id="area" class="form-control selectpicker" data-live-search="true"
                                             name="area">
                                         <option value="0">Choose the area...</option>
@@ -105,7 +109,7 @@
                                 <label for="date"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Date from') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
 
                                     <input id="date_from" type="date" class="form-control" name="date_from"
                                            value="{{  old('date_from') }}">
@@ -117,7 +121,7 @@
                                 <label for="date"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Date to') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
 
                                     <input id="date_to" type="date" class="form-control" name="date_to"
                                            value="{{  old('date_to') }}">

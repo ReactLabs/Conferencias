@@ -22,14 +22,14 @@
                     <br/>
                 @endif
                 <div class="card">
-                    <div class="card-header">Areas</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">Areas</div>
                     <div class="card-body table-responsive">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <table id="filtroTabela" class="table table-striped text-center">
+                        <table id="filtroTabela" class="text-center table-striped" style="width: 100%;">
                             <thead>
                             <tr>
                                 <th rowspan="2">ID</th>
@@ -49,13 +49,19 @@
                                     <td>{{ $tag->id }}</td>
                                     <td><a href="{{action('TagController@show', $tag->id)}}">{{ $tag->name }}</a></td>
                                     <td>{{ $tag->getAreaName() }}</td>
-                                    <td> <a href="{{action('TagController@edit', $tag->id)}}"class="btn btn-warning"> Edit </a></td>
+                                    <td>
+                                        <a href="{{action('TagController@edit', $tag->id)}}"class="btn btn-warning btn-sm" style="background-color: gold;border-color: gold">
+                                            <img width="20px" height="20px" src="{{ asset('img/edit.png') }}">
+                                        </a>
+                                    </td>
                                     <td>
                                         <form id="ex" class="" action="{{action('TagController@destroy', $tag->id)}}" method="post">
                                             {{method_field('DELETE')}}
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger" type="submit">Remove</button>
+                                            <button class="btn btn-danger btn-sm" type="submit">
+                                                <img width="20px" height="20px" src="{{ asset('img/delete.png') }}">
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
