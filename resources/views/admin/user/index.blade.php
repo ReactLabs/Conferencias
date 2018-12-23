@@ -29,12 +29,17 @@
                         <table id="filtroTabela" class="text-center table-striped" style="width: 100%;">
                             <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Type</th>
-                                <th>Situation</th>
+                                <th rowspan="2">ID</th>
+                                <th rowspan="2">Name</th>
+                                <th rowspan="2">Email</th>
+                                <th rowspan="2">Type</th>
+                                <th rowspan="2">Situation</th>
                                 <th colspan="2">Operation</th>
+                            </tr>
+                            <tr>
+                                <!-- Colunas para colocar os botões na mesma coluna-->
+                                <th></th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
