@@ -2,7 +2,6 @@
 @section('content')
 
 
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -55,14 +54,19 @@
                                         </td>
                                         <td>{{ $event->initials }}</td>
                                         <td>{{ $event->deadline }}</td>
-                                        <td><a href="{{action('EventController@edit', $event->id)}}"
-                                               class="btn btn-warning"> Edit </a></td>
+                                        <td>
+                                            <a href="{{action('EventController@edit', $event->id)}}" class="btn btn-warning btn-sm" style="background-color: gold;border-color: gold">
+                                                <img width="20px" height="20px" src="{{ asset('img/edit.png') }}">
+                                            </a>
+                                        </td>
                                         <td>
                                             <form action="{{ action('EventController@destroy', $event->id) }}"
                                                   method="post">
                                                 @csrf
                                                 <input name="_method" type="hidden" value="DELETE">
-                                                <button class="btn btn-danger" type="submit">Delete</button>
+                                                <button class="btn btn-danger btn-sm" type="submit">
+                                                    <img width="20px" height="20px" src="{{ asset('img/delete.png') }}">
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
