@@ -41,7 +41,7 @@
     <nav class="navbar navbar-expand-xl bg-light navbar-light navbar-laravel">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="img/react.png" width="120" class="d-inline-block align-top" alt="">
+                <img src=" {{ asset('img/react.png') }}" width="120" class="d-inline-block align-top" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -197,21 +197,22 @@
         </div>
     </nav>
 
-    <main class="py-auto">
+    <main class="py-4">
         @yield('content')
     </main>
 </div>
+<br>
 <footer class="fixed-bottom">
-    <div class="container-fluid" style="background-color: #4c110f; color: lightgray; font-size: 13px;">
+    <div class="container-fluid" style="background-color: #4c110f;opacity: 0.9; font-size: 13px;">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12 col-sn-12 col-md-4 col-lg-4">
-                    <a class="nav-link" style="color:lightgray" href="{{ url('/about') }}">About</a>
+                    <a class="nav-link" style="color:white" href="{{ url('/about') }}">About</a>
                 </div>
                 <div class="col-xs-12 col-sn-12 col-md-3 col-lg-3">
                 </div>
                 <div class="col-xs-12 col-sn-12 col-md-5 col-lg-5">
-                    <a class="nav-link" style="color:lightgray">REACT - versão 1.0.0 | Todos os Direitos Reservados à UPE-NTI</a>
+                    <a class="nav-link" style="color:white">REACT - versão 1.1.0 | Todos os Direitos Reservados à UPE-NTI</a>
                 </div>
             </div>
         </div>
