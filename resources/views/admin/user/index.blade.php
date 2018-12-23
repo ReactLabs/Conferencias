@@ -26,7 +26,7 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <table class="table-striped text-center">
+                        <table id="filtroTabela" class="text-center table-striped" style="width: 100%;">
                             <thead>
                             <tr>
                                 <th>ID</th>
@@ -45,17 +45,31 @@
                                     <td>{{$user['email']}}</td>
                                     <td>{{ $user['type'] }}</td>
                                     @if( ! $user['active'])
-                                        <td> <a href="{{action('UserController@setActive', $user['id'])}}"class="btn btn-primary"> Activate </a></td>
+                                        <td>
+                                            <a href="{{action('UserController@setActive', $user['id'])}}"class="btn btn-primary btn-sm">
+                                                <img width="20px" height="20px" src="{{ asset('img/disabled.png') }}">
+                                            </a>
+                                        </td>
                                     @else
-                                        <td> <a href="{{action('UserController@setActive', $user['id'])}}"class="btn btn-success"> Disable </a></td>
+                                        <td>
+                                            <a href="{{action('UserController@setActive', $user['id'])}}"class="btn btn-success btn-sm">
+                                                <img width="20px" height="20px" src="{{ asset('img/accept.png') }}">
+                                            </a>
+                                        </td>
                                     @endif
-                                    <td><a href="{{ action('UserController@edit', $user['id'])}}" class="btn btn-warning">Edit</a></td>
+                                    <td>
+                                        <a href="{{ action('UserController@edit', $user['id'])}}" class="btn btn-warning btn-sm" style="background-color: gold;border-color: gold">
+                                            <img width="20px" height="20px" src="{{ asset('img/edit.png') }}">
+                                        </a>
+                                    </td>
                                     <td>
                                         <form id="ex" class="" action="{{action('UserController@destroy', $user->id)}}" method="post">
                                             {{method_field('DELETE')}}
                                             @csrf
                                             <input name="_method" type="hidden" value="DELETE">
-                                            <button class="btn btn-danger" type="submit">Remove</button>
+                                            <button class="btn btn-danger btn-sm" type="submit">
+                                                <img width="20px" height="20px" src="{{ asset('img/delete.png') }}">
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
