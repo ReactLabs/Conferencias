@@ -32,7 +32,7 @@
 
                         <div class="card-body">
 
-                            <table id="filtroTabela" class="table table-striped text-center">
+                            <table id="filtroTabela" class="text-center table-striped" style="width: 100%;">
                                 <thead>
                                 <tr>
                                     <th rowspan="2">ID</th>
@@ -77,7 +77,7 @@
             <div class="col-md-4">
                 <br>
                 <div class="card">
-                    <div class="card-header">Advanced Search</div>
+                    <div class="card-header" style="background-color: #4c110f; color: white; opacity: 0.9">Advanced Search</div>
                     <div class="card-body">
 
                     <!-- <label class="col-md-12 col-form-label text-md-center">{{ __('Advanced Search') }}</label><br> -->
@@ -89,7 +89,7 @@
                                 <label for="area"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Area') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
                                     <select id="area" class="form-control selectpicker" data-live-search="true"
                                             name="area">
                                         <option value="0">Choose the area...</option>
@@ -105,7 +105,7 @@
                                 <label for="date"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Date from') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
 
                                     <input id="date_from" type="date" class="form-control" name="date_from"
                                            value="{{  old('date_from') }}">
@@ -117,7 +117,7 @@
                                 <label for="date"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Date to') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col-md-8">
 
                                     <input id="date_to" type="date" class="form-control" name="date_to"
                                            value="{{  old('date_to') }}">
