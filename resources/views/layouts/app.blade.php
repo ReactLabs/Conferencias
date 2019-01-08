@@ -40,9 +40,17 @@
 <div id="app">
     <nav class="navbar navbar-expand-xl bg-light navbar-light navbar-laravel">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/moderator/event/') }}">
-                <img src=" {{ asset('img/react.png') }}" width="120" class="d-inline-block align-top" alt="">
-            </a>
+
+            @guest
+                <a class="navbar-brand" href="{{ url('/') }}">
+                    <img src=" {{ asset('img/react.png') }}" width="120" class="d-inline-block align-top" alt="">
+                </a>
+            @else
+                <a class="navbar-brand" href="{{ url('/moderator/event/') }}">
+                    <img src=" {{ asset('img/react.png') }}" width="120" class="d-inline-block align-top" alt="">
+                </a>
+            @endguest
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
@@ -201,6 +209,9 @@
         @yield('content')
     </main>
 </div>
+<br>
+<br>
+<br>
 <br>
 <footer class="fixed-bottom">
     <div class="container-fluid" style="background-color: #4c110f;opacity: 0.9; font-size: 13px;">
