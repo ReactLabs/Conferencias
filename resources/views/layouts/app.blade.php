@@ -212,7 +212,6 @@
 <br>
 <br>
 <br>
-<br>
 <footer class="fixed-bottom">
     <div class="container-fluid" style="background-color: #4c110f;opacity: 0.9; font-size: 13px;">
         <div class="container">
