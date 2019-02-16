@@ -36,7 +36,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
 
 </head>
-<body style="background-color: rgb(90,92,94);">
+<body style="background-color: #e9e9e9;">
 <div id="app">
     <nav class="navbar navbar-expand-xl bg-light navbar-light navbar-laravel">
         <div class="container">
